@@ -18,8 +18,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Create admin for Paduka Alwiy
         Admin::factory()->create([
-            'email' => 'admin@example.com',
+            'name' => 'Paduka Alwiy',
+            'email' => 'alwismith76@gmail.com',
+            'password' => bcrypt('alwi313'),
         ]);
         /* @var User $user */
         $user = User::factory()->create([
