@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: ibio-paduka-alwiy
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile.render
+    envVars:
+      - key: APP_NAME
+        value: iBio
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_DRIVER
+        value: file
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: FILESYSTEM_DISK
+        value: public
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ibio-mysql
+          property: connectionString
+
+databases:
+  - name: ibio-mysql
+    plan: free
+    databaseName: ibio
+    user: ibio_user
