@@ -1,0 +1,25 @@
+app = "ibio-paduka-alwiy"
+primary_region = "sin"
+
+[build]
+
+[env]
+  APP_NAME = "iBio"
+  APP_ENV = "production"
+  APP_DEBUG = "false"
+  SESSION_DRIVER = "database"
+  CACHE_DRIVER = "file"
+  QUEUE_CONNECTION = "sync"
+  FILESYSTEM_DISK = "public"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
